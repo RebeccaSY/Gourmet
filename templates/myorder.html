@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block body %}
+<br/>
+
+
+<head>
+    <style type="text/css">
+
+        body{
+            font-family:verdana;
+            background-color:#F7EFD8;
+        }
+
+        h2{
+            font-size: 34px;
+            margin-left:5%;
+        }
+
+        h3{
+            font-size: 20px;
+            color: #828F6C;
+            margin-left:5%;
+        }
+
+        #order{
+            font-size: 14px;
+            margin-left:5%;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div>
+        <h2>My Order</h2>
+        <h3>{{cartnum}}</h3>
+    </div>
+
+
+    <div id="order">
+        <pre>
+            <p style="height:200px; width:420px; border: 1.7px solid #828F6C; border-radius: 10px; padding-left:20px">{{order}}</p>
+        </pre>
+    </div>
+</body>
+{% endblock %}
+        

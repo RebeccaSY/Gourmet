@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block body %}
+<br/>
+
+<head>
+    <style type="text/css">
+
+        body{
+            font-family:verdana;
+            background-color:#F7EFD8;
+        }
+
+        h2{
+            font-size: 34px;
+            margin-left:5%;
+        }
+
+        h3{
+            font-size: 20px;
+            color: #828F6C;
+            margin-left:5%;
+        }
+
+        #order{
+            font-size: 16px;
+            margin-left:5%;
+        }
+
+        #body{
+            font-size: 14px;
+            margin-left:5%;
+        }
+        
+        button{            
+            height: 2rem;
+            font-size: 16px;
+            text-align:center;
+            padding-left: 20px;
+            padding-right: 20px;
+            color: white;
+            background-color:#8BC849;
+            margin-left:1px;
+            outline:none;
+            border:none;
+            border-radius: 1rem;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div>
+        <h2>Checkout</h2>
+        <h3>{{cartnum}}</h3>
+    </div>
+    {% if part == 'A' %}
+    <div id="body">
+        <pre>
+            <p style="height:200px; width:420px; border: 1.7px solid #828F6C; border-radius: 10px; padding-left:20px">{{order}}</p>
+            <p>Your Total Price is <span style="color: #828F6C; font-size:30px"> {{price}} </span> </p> 
+        </pre>
+
+        <form name="form1", method="POST">
+            <button type="submit" name="submit_button">Confirm and Pay</button>
+        </form>
+    </div>
+
+    {% endif %}
+
+    {% if part == 'B' %}
+    <div>
+        <pre>
+            <p>{{order}}</p>
+            <p>{{msg}}</p>
+        </pre>
+    </div>
+</body>
+
+{% endif %}
+{% endblock %}
+        

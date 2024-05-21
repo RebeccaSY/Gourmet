@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>GourmetBurgers!</title>
+
+    <style type="text/css">
+
+        ul{
+            list-style: none;
+            height: 40px;
+            width: 100%;
+            font-family: verdana;
+            text-align: left;
+            background-color:#8BC849;
+            margin-top: 16px;
+        }
+
+        li{
+            list-style: none;
+            display: inline-block;
+        }
+
+        a{
+            display: block;
+            line-height: 35px;
+            width: 100px;
+            height: 35px;
+            padding-left: 20px;
+            padding-top: 5px;
+            vertical-align: middle;
+            color: #828F6C;
+            text-decoration: none;
+        }
+
+        a:hover{
+            font-family:verdana;
+            color: #F7EFD8;
+			background-color:#7AB638;
+		}
+
+        a:visited{
+            color: white;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- Tab Menu -->
+
+<div text-align-last: justify>
+<ul>
+    <li><a href="{{ url_for('homehtml') }}">Home</a></li>
+    <li><a href="{{ url_for('mainhtml') }}">Mains</a></li>
+    <li><a href="{{ url_for('drinkhtml') }}">Drinks</a></li>
+    <li><a href="{{ url_for('sidehtml') }}">Sides</a></li>
+    <li><a href="{{ url_for('myorderhtml') }}">My Order</a></li>
+    <li><a href="{{ url_for('checkouthtml') }}">Checkout</a></li>
+</ul>
+</div>
+
+<br>
+
+<!-- Main Content -->
+{% block body %}{% endblock %}
+
+</body>
+</html>

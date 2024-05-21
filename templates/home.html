@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block body %}
+<br/>
+
+<head>
+    <style type="text/css">
+
+        #home{
+            font-family:verdana;
+            font-size: 30px;
+            margin-left:5%;
+        }
+
+        #body{
+            font-family:verdana;
+            margin-left:5%;
+        }
+
+        body{            
+            background-color:#F7EFD8;
+        }
+        
+        button{            
+            height: 2rem;
+            font-size: 16px;
+            text-align:center;
+            padding-left: 20px;
+            padding-right: 20px;
+            color: white;
+            background-color:#8BC849;
+            margin:10px;
+            outline:none;
+            border:none;
+            border-radius: 1rem;
+        }
+
+        button:hover{
+            background-color:#7AB638;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div id="home">
+        <h2>Home</h2><br/>
+    </div>
+
+    <div id="body">
+        <form name="form1", method="POST">
+            <p style="font-size:18px">Enter your order number to search for your order</p>
+            <input type="number" name='search' size=30 min = 0 value = 0
+            style="height:28px; background:none; border: 1.7px solid #828F6C; margin-left:10px; border-radius: 18px; padding-left:10px"><br> 
+            <button type="submit" name="submit_button" value = 'ordersearch'>Search for an order</button>
+        </form>
+    </div>
+
+    {% if part == 'A' %}
+    <div>
+        <pre style="font-size:16px; color:red">
+            {{order}}
+        </pre>
+    </div>
+
+</body>
+{% endif %}
+
+<ul><li><a style="margin-left:30%" href="{{ url_for('homestaffhtml') }}">Staff</a></li></ul>
+{% endblock %}
+        

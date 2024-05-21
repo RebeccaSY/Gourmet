@@ -1,0 +1,86 @@
+{% extends 'base_staff.html' %}
+{% block body %}
+<br/>
+
+
+<head>
+    <style type="text/css">
+
+        #maininv{
+            font-family:verdana;
+            font-size: 30px;
+            margin-left:5%;
+        }
+
+        #body{
+            font-family:verdana;
+            margin-left:5%;
+        }
+        
+        body{
+            background-color:#F7EFD8;
+            background-image: url("../img/BG01.jpg");
+            background-size: cover;
+        }
+
+        table{        
+            width:60%;
+            padding: 10px;
+            text-align: left;
+            font-size: 15px;
+        }
+
+        button{            
+            height: 2rem;
+            font-size: 16px;
+            text-align:center;
+            padding-left: 20px;
+            padding-right: 20px;
+            color: white;
+            background-color:#8BC849;
+            margin:1px;
+            outline:none;
+            border:none;
+            border-radius: 1rem;
+        }
+
+        button:hover{
+            background-color:#7AB638;
+        }
+
+    </style>
+</head>
+
+
+<body>
+    <div id="maininv">
+        <h2>Mains Inventory</h2>
+    </div>
+    <form name="form1", method="POST">
+    <!--  https://stackoverflow.com/questions/22655031/jinja2-how-to-put-a-block-in-an-if-statement -->
+    <div id="body">
+        <table style="width:60%">
+            <tr style="color:#828F6C; font-size:20px">
+            <th>Name</th>
+            <th>Quantity</th> 
+            <th>Refill</th>
+            </tr>
+            {% for ingredient in inventory %}
+            <tr>         
+                <td>{{ ingredient.name }}</td>
+                <td>{{ ingredient.quantity }}</td>
+                <td><input type="number" name='{{ingredient.name}}' size=30 min = 0 value=0
+                    style="height:20px; background:none; border: 1.7px solid #828F6C; border-radius: 14px; padding-left:10px"></td><br>         
+            </tr>
+            {% endfor %}       
+        </table>  
+        <button type="submit" name="Refill">Refill</button>
+    </div>
+    </form>
+    <div style="color:#F00;">
+        <pre>
+            <!--Error Message goes here-->
+        </pre>
+    </div>
+</body>
+{% endblock %}

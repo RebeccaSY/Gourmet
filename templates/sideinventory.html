@@ -1,0 +1,30 @@
+{% extends 'base_staff.html' %}
+{% block body %}
+<br/>
+
+<div>
+    <h2>Sides Inventory</h2>
+    <form name="form1", method="POST">
+    <!--  https://stackoverflow.com/questions/22655031/jinja2-how-to-put-a-block-in-an-if-statement -->
+    <table style="width:60%">
+        <tr>
+          <th>Name</th>
+          <th>Quantity</th> 
+          <th>Refill</th>
+        </tr>
+        {% for ingredient in inventory %}
+        <tr>         
+            <td>{{ ingredient.name }}</td>
+            <td>{{ ingredient.weight }}</td>
+            <td><input type="number" name='{{ingredient.name}}' size=30 min = 0 value=0></td><br>         
+        </tr>
+        {% endfor %}       
+    </table>  
+    <button type="submit" name="Refill">Refill</button>
+</form>
+<div style="color:#F00;">
+    <pre>
+        <!--Error Message goes here-->
+    </pre>
+</div>
+{% endblock %}

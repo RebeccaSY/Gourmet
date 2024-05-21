@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% block body %}
+<br/>
+
+<head>
+    <style type="text/css">
+
+        #main{
+            font-family:verdana;
+            font-size: 30px;
+            margin-left:5%;
+        }
+
+        #body{
+            font-family:verdana;
+            margin-left:5%;
+        }
+        
+        #cust{
+            font-family:verdana;
+            margin-left:5%;
+        }
+
+        body{
+            background-image: url(../img/BG01.jpg);
+            background-size: cover;
+        }
+
+        table{        
+            width:60%;
+            padding: 10px;
+            text-align: left;
+            font-size: 15px;
+        }
+
+        button{            
+            height: 2rem;
+            font-size: 16px;
+            text-align:center;
+            padding-left: 20px;
+            padding-right: 20px;
+            color: white;
+            background-color:#8BC849;
+            margin:1px;
+            outline:none;
+            border:none;
+            border-radius: 1rem;
+        }
+
+        button:hover{
+            background-color:#7AB638;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div id="main">
+        <h2>Mains</h2>
+    </div>
+    <form name="form1", method="POST">   
+        <!--  https://stackoverflow.com/questions/22655031/jinja2-how-to-put-a-block-in-an-if-statement -->
+
+    {% if main_page=="baseburgers" %}
+    <div id="body">
+        <!--img src="../img/burger.jpg" align="right" alt="burger"-->
+        <table>
+            <tr style="color:#828F6C; font-size:20px">
+            <th>Base Burgers</th>
+            <th>Price</th> 
+            <th>Quantity</th>
+            </tr>
+            <tr>         
+                <td>Classic Chicken Burger </td>
+                <td>{{chicken_price}}</td>  
+                <td><input type="number" name='chickenburger' size=30 min = 0 value=0 
+                    style="height:20px; background:none; border: 1.7px solid #828F6C; border-radius: 14px; padding-left:10px"></td><br>               
+            </tr>
+            <tr>         
+                <td>Classic Vegetarian Burger </td>
+                <td>{{veg_price}}</td>  
+                <td><input type="number" name='vegburger' size=30 min = 0 value=0 
+                    style="height:20px; background:none; border: 1.7px solid #828F6C; border-radius: 14px; padding-left:10px"></td><br>               
+            </tr>
+        </table><br>
+        <button type="submit" name="submit_bases">Add to Cart</button><br><br>  
+        <div style="color:#F00;">
+        <pre>
+        {{error_msg}}
+        </pre>
+        </div>  
+        Or you can
+        <button type="submit" name="customise"> Customise your own burger! </button><br>
+    </div>
+        
+
+    {% elif main_page=="customise" %}
+    <div id="cust">
+        <h3 style="color:#828F6C; font-size:25px"> Customise your own burger! </h3>
+        <table>
+            <tr style="color:#828F6C; font-size:20px">
+            <th>Name</th>
+            <th>Price</th> 
+            <th>Quantity</th>
+            </tr>
+            {% for name, price in items.items() %}
+            <tr>         
+                <td>{{ name }}</td>
+                <td>{{ price }}</td>
+                <td><input type="number" name='{{name}}' size=30 min = 0 value=0
+                    style="height:20px; background:none; border: 1.7px solid #828F6C; border-radius: 14px; padding-left:10px"></td><br>         
+            </tr>
+            {% endfor %}
+        </table>
+        <button type="submit" name="submit_button"> Add to Cart </button>
+        </form>
+        <div style="color:#F00;">
+            <pre>
+            {{error_msg}}
+            </pre>
+        </div>
+    </div>
+
+<body>
+
+{% endif %}
+{% endblock %}  

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block body %}
+<br/>
+
+
+    <h2>Sides</h2>
+    <h3>{{cartnum}}</h3>
+</div>
+<form name="form1", method="POST">
+    <!--  https://stackoverflow.com/questions/22655031/jinja2-how-to-put-a-block-in-an-if-statement -->
+    
+    <table style="width:60%">
+        <tr>
+          <th>Name</th>
+          <th>Price</th> 
+          <th>Quantity</th>
+        </tr>
+        {% for name, price in items.items() %}
+        <tr>         
+            <td>{{ name }}</td>
+            <td>{{ price }}</td>
+            <td><input type="number" name='{{name}}' size=30 min = 0 value=0></td><br>         
+        </tr>
+        {% endfor %}
+    </table>  
+    <button type="submit" name="submit_button">Add to Cart</button>
+</form>
+<div style="color:#F00;">
+    <pre>
+        {{error_msg}}
+    </pre>
+</div>
+{% endblock %}
+        

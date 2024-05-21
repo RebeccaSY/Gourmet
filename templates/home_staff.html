@@ -1,0 +1,74 @@
+{% extends 'base_staff.html' %}
+{% block body %}
+<br/>
+
+
+<head>
+    <style type="text/css">
+
+        #home{
+            font-family:verdana;
+            font-size: 30px;
+            margin-left:5%;
+        }
+
+        #body{
+            font-family:verdana;
+            margin-left:5%;
+        }
+
+        h2{
+            font-family:verdana;
+            font-size: 34px;
+            margin-left:5%;
+        }
+
+        body{            
+            background-color:#F7EFD8;
+        }
+        
+        button{            
+            height: 2rem;
+            font-size: 16px;
+            text-align:center;
+            padding-left: 20px;
+            padding-right: 20px;
+            color: white;
+            background-color:#8BC849;
+            margin:10px;
+            outline:none;
+            border:none;
+            border-radius: 1rem;
+        }
+
+        button:hover{
+            background-color:#7AB638;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h2>Staff Panel</h2>
+    <div id="body">
+        <form name="form1", method="POST">
+        <p style="font-size:18px">Enter an order number</p>            
+        <input type="number" name="order_num" size=30 min = 0 value=0
+        style="height:20px; background:none; border: 1.7px solid #828F6C; border-radius: 14px; padding-left:10px">
+        <button type="submit" name="complete">Finish</button>
+
+        <pre>
+        {% for o in orders %}
+        {{o}}
+        {% endfor %}
+        {% if orders%}
+        {% endif %}
+
+        </pre>
+        </form>
+    </div>
+
+    <ul><li><a style="margin-left:30%" href="{{ url_for('homehtml') }}">Customer</a></li></ul>
+</body>
+
+{% endblock %}
